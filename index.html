@@ -4,46 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Everywhere</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link href="css/styles.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+    <link href="fonts/FontAwesome/font-awesome.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootsnav.css" rel="stylesheet">
+    <link href="css/reset.css" rel="stylesheet">
+    <link href="css/scroll.css" rel="stylesheet">
+
     <script
             src="https://code.jquery.com/jquery-2.2.4.js"
             integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
             crossorigin="anonymous"></script>
-    <script type="text/javascript" src="scripts/quietflow.min.js"></script>
-    <script type="text/javascript" src="scripts/index.js"></script>
+    <script type="text/javascript" src="js/quietflow.min.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
 </head>
-<body>
+<body id="home">
 <!-- Navigation menu -->
-<nav class="menu">
-    <div class="menu-item current-menu-item">
-        <h6>
-            <a href="index.html">Home</a>
-        </h6>
-        <div class="wee"></div>
-    </div>
-    <div class="menu-item">
-        <h6>
-            <a href="about.html">About Us</a>
-        </h6>
-    </div>
-    <div class="menu-item">
-        <h6>
-            <a href="contact.html">Contact Us</a>
-        </h6>
-    </div>
-    <div class="menu-item">
-        <h6><a href="careers.html">Careers</a>
-        </h6>
+<nav class="navbar navbar-default bootsnav">
+    <div class="container">
+        <!-- Start Header Navigation -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+        <!-- End Header Navigation -->
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-menu">
+            <ul class="nav navbar-nav navbar-center">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
 </nav>
 
 
 <!-- Page content -->
-<h1>AI Everywhere</h1>
-<p class="formula">AI = Data + Algorithm</p>
-<p class="formula">Data = We have the real-world data from every industry</p>
-<p class="formula">Algorithm = We have the most cutting-edge AI algorithms from every field</p>
+<!--<h1>AI Everywhere</h1>-->
+<!--<p class="formula">AI = Data + Algorithm</p>-->
+<!--<p class="formula">Data = We have the real-world data from every industry</p>-->
+<!--<p class="formula">Algorithm = We have the most cutting-edge AI algorithms from every field</p>-->
+
+<div class="container">
+    <section class="background">
+        <div class="content-wrapper">
+        </div>
+    </section>
+    <section class="background">
+        <div class="content-wrapper">
+            <p class="content-title">Full Page Parallax Effect.</p>
+            <p class="content-subtitle">Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos
+                himenaeos. Cras ut massa mattis nibh semper pretium.</p>
+        </div>
+    </section>
+    <section class="background">
+        <div class="content-wrapper">
+            <p class="content-title">Etiam consequat lectus.</p>
+            <p class="content-subtitle">Nullam tristique urna sed tellus ornare congue. Etiam vitae erat at nibh aliquam
+                dapibus.</p>
+        </div>
+    </section>
+</div>
 
 <div class="industry-container">
     <span id="left-arrow" class="arrow">&#8592;</span>
@@ -51,6 +79,74 @@
     <span id="right-arrow" class="arrow">&#8594;</span>
 </div>
 
-<script src="scripts/scripts.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.10.1/lodash.min.js'></script>
+<script src="js/bootsnav.js"></script>
+<script>
+    var ticking = false;
+    var isFirefox = /Firefox/i.test(navigator.userAgent);
+    var isIe = /MSIE/i.test(navigator.userAgent) || /Trident.*rv\:11\./i.test(navigator.userAgent);
+    var scrollSensitivitySetting = 30;
+    var slideDurationSetting = 800;
+    var currentSlideNumber = 0;
+    var totalSlideNumber = $('.background').length;
+
+    function parallaxScroll(evt) {
+        if (isFirefox) {
+            delta = evt.detail * -120;
+        } else if (isIe) {
+            delta = -evt.deltaY;
+        } else {
+            delta = evt.wheelDelta;
+        }
+        if (ticking != true) {
+            if (delta <= -scrollSensitivitySetting) {
+                ticking = true;
+                if (currentSlideNumber !== totalSlideNumber - 1) {
+                    currentSlideNumber++;
+                    nextItem();
+                }
+                slideDurationTimeout(slideDurationSetting);
+            }
+            if (delta >= scrollSensitivitySetting) {
+                ticking = true;
+                if (currentSlideNumber !== 0) {
+                    currentSlideNumber--;
+                }
+                previousItem();
+                slideDurationTimeout(slideDurationSetting);
+            }
+        }
+    }
+
+    function slideDurationTimeout(slideDuration) {
+        setTimeout(function () {
+            ticking = false;
+        }, slideDuration);
+    }
+
+    var mousewheelEvent = isFirefox ? 'DOMMouseScroll' : 'wheel';
+    window.addEventListener(mousewheelEvent, _.throttle(parallaxScroll, 60), false);
+
+    function nextItem() {
+        var $previousSlide = $('.background').eq(currentSlideNumber - 1);
+        $previousSlide.css('transform', 'translate3d(0,-130vh,0)').find('.content-wrapper').css('transform', 'translateY(40vh)');
+        currentSlideTransition();
+    }
+
+    function previousItem() {
+        var $previousSlide = $('.background').eq(currentSlideNumber + 1);
+        $previousSlide.css('transform', 'translate3d(0,30vh,0)').find('.content-wrapper').css('transform', 'translateY(30vh)');
+        currentSlideTransition();
+    }
+
+    function currentSlideTransition() {
+        var $currentSlide = $('.background').eq(currentSlideNumber);
+        $currentSlide.css('transform', 'translate3d(0,-15vh,0)').find('.content-wrapper').css('transform', 'translateY(15vh)');
+        ;
+    }
+</script>
 </body>
 </html>
