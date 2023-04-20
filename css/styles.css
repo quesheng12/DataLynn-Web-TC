@@ -1,21 +1,25 @@
-/* General styles */
+/* General css */
 body {
     font-family: Arial, sans-serif;
-    max-width: 800px;
+    /*max-width: 800px;*/
     margin: 0 auto;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    overflow: hidden;
 }
 
 nav {
     display: flex;
     justify-content: space-around;
-    background-color: #f8f9fa;
+    /*background-color: #f8f9fa;*/
     padding: 10px;
 }
 
 nav a {
     text-decoration: none;
     color: #333;
-    font-size: 18px;
+    font-size: 24px;
 }
 
 nav a:hover {
@@ -27,7 +31,7 @@ h1 {
     margin-bottom: 40px;
 }
 
-/* Home page styles */
+/* Home page css */
 .formula {
     font-size: 24px;
     text-align: center;
@@ -60,7 +64,7 @@ h1 {
     color: #007bff;
 }
 
-/* Industry pages styles */
+/* Industry pages css */
 .data-challenge-item {
     margin-bottom: 10px;
 }
