@@ -45,10 +45,11 @@ nav.navbar.bootsnav{
     -webkit-border-radius: 0px;
     -o-border-radius: 0px;
     border-radius: 0px;
-    background-color: #fff0;
+    background-color: #ffffff;
     border: none;
     /*border-bottom: solid 1px #e0e0e0;*/
     z-index: 9;
+    width: 100vw;
 }
 
 nav.navbar.bootsnav ul.nav > li > a{

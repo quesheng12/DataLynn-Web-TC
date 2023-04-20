@@ -1,9 +1,23 @@
 $(document).ready(function () {
-    // $("body").quietflow({
-    //     theme: "simpleGradient",
-    //     primary: "#B066FE",
-    //     accent: "#63E2FF"
-    // })
+
+
+    $("#background-2").quietflow({
+        theme: "simpleGradient",
+        primary: "#BFCCB5",
+        accent: "#7C96AB"
+    })
+
+    $("#background-0").quietflow({
+        theme: "simpleGradient",
+        primary: "#98D8AA",
+        accent: "#F3E99F"
+    })
+
+    $("#background-1").quietflow({
+        theme: "simpleGradient",
+        primary: "#B066FE",
+        accent: "#63E2FF"
+    })
 
     // $(window).on('load resize', function () {
     //     var $thisnav = $('.current-menu-item').offset().left;

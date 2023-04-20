@@ -1,33 +1,70 @@
 .menu {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .menu .menu-item {
-  position: relative;
-  cursor: pointer;
+    position: relative;
+    cursor: pointer;
 }
 
 .menu .menu-item .wee {
-  height: 2px;
-  width: 100%;
-  background-color: #002b75;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  transition: 0.75s;
+    height: 2px;
+    width: 100%;
+    background-color: #002b75;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transition: 0.75s;
 }
 
 .menu .menu-item h6 {
-  margin: 0;
-  padding: 0 1rem 1.5rem;
-  font-size: 1rem;
-  color: #232323;
-  transition: 0.75s;
+    margin: 0;
+    padding: 0 1rem 1.5rem;
+    font-size: 1rem;
+    color: #232323;
+    transition: 0.75s;
 }
 
-.menu .menu-item:hover h6 { color: #002b75; }
+.menu .menu-item:hover h6 {
+    color: #002b75;
+}
 
-.menu .current-menu-item h6 { color: #002b75; }
+.menu .current-menu-item h6 {
+    color: #002b75;
+}
+
+.text-container {
+    display: inline-block;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: #fff0;
+    box-shadow: -4px 8px 11px 0px rgba(0, 0, 0, 0.47)
+}
+
+.text-container.half-span {
+    width: 40vw;
+}
+
+.page2-left {
+    height: 100vh;
+    position: absolute;
+    margin-top: 64vh;
+    margin-left: 23vw;
+    display: inline;
+}
+
+.page2-right{
+    display: block;
+    width: 50vw;
+    position: absolute;
+    margin-left: 50vw;
+}
+
+.page2-right .content-title-page2{
+    font-size: 4vw;
+}
