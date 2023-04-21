@@ -46,7 +46,8 @@ h1 {
 }
 
 .arrow {
-    font-size: 48px;
+    padding-bottom: 10vh;
+    font-size: 6vw;
     cursor: pointer;
 }
 

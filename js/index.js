@@ -19,6 +19,15 @@ $(document).ready(function () {
         accent: "#63E2FF"
     })
 
+    $(".box").mouseover(function () {
+        $(this).find(".page2-label").css("transform", "scale(0)");
+    });
+
+    $(".box").mouseleave(function () {
+        $(this).find(".page2-label").css("transform", "scale(1)");
+    });
+
+
     // $(window).on('load resize', function () {
     //     var $thisnav = $('.current-menu-item').offset().left;
     //     $('.menu-item').hover(function () {
